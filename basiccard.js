@@ -1,12 +1,16 @@
-
-var BasicCard = function(front, back){
-  this.front = front;
-  this.back = back;
+function BasicCard(front, back) {
+    this.front = front;
+    this.back = back;
+    //create method makes the basic card object
+    this.create = function() {
+		var cardData = {
+			type: "basic",
+			front: this.front,
+			back: this.back
+    	};
+    	//write the object to .txt file
+    	writeFile(cardData);
+    }
 };
-
-var firstPresident = new BasicCard("Who was the first president of The United States?", "George Washington")
-
-console.log("Front: " + firstPresident.front);
-console.log("Back: " + firstPresident.back);
 
 module.exports = BasicCard;
