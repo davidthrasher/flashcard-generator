@@ -1,7 +1,8 @@
+var fs = require('fs');
+
 function BasicCard(front, back) {
     this.front = front;
     this.back = back;
-    //create method makes the basic card object
     this.create = function() {
 		var cardData = {
 			type: "basic",
@@ -13,4 +14,8 @@ function BasicCard(front, back) {
     }
 };
 
+function writeFile(cardData) {
+  fs.appendFile('./log.txt', "\r\n" + JSON.stringify(cardData), 'utf8', function (error, data) {
+   	});
+}
 module.exports = BasicCard;

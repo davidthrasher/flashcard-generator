@@ -1,9 +1,9 @@
+var fs = require('fs');
+
 function ClozeCard(text, cloze){
     this.text = text;
     this.cloze = cloze;
-    //replace cloze word with ellipsis
     this.clozeDeleted = this.text.replace(this.cloze, ' ... ');
-    //create method makes the cloze card object
     this.create = function() {
     	var cardData = {
     		type: "cloze",
@@ -17,4 +17,8 @@ function ClozeCard(text, cloze){
     }
 };
 
+function writeFile(cardData) {
+  fs.appendFile('./log.txt', "\r\n" + JSON.stringify(cardData), 'utf8', function (error, data) {
+   	});
+}
 module.exports = ClozeCard;
